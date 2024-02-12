@@ -19,6 +19,8 @@
     "@nextui-org/theme": "^2.1.17",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^11.0.3",
+    "google-auth-library": "^9.6.3",
+    "google-spreadsheet": "^4.1.1",
     "mongoose": "^8.1.1",
     "next": "14.0.0",
     "next-auth": "^4.24.5",
