@@ -19,7 +19,7 @@ export default function Dashboard() {
         <ButtonWrapper />
       </div>
 
-      <div className="md:flex md:flex-row flex-1  gap-6 p-3">
+      <div className="md:flex md:flex-row flex-1  gap-6 p-3 max-w-[100rem]">
         <InformationForm />
         <div className="flex-1 flex flex-col">
           <Agenda />

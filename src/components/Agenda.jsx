@@ -23,7 +23,7 @@ export const Agenda = () => {
 
   return (
     <div className='flex flex-col flex-1 gap-2'>
-      <div>
+      <div className='basis-10/12 overflow-y-scroll'>
         <FullCalendar
           plugins={[dayGridPlugin]}
           initialView='dayGridMonth'
