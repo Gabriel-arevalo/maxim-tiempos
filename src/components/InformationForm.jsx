@@ -32,7 +32,7 @@ export const InformationForm = () => {
   } = useInformationForm()
 
   return (
-    <section className="my-3 min-w-[40%] shadow-lg ">
+    <section className=" min-w-[40%] shadow-lg ">
       <Notification />
       <div className="bg-slate-300 rounded p-3 h-full">
         <h2 className="subtitle">{ session?.user?.position }</h2>
