@@ -1,19 +1,15 @@
 
-
 import { useContext, useEffect, useRef, useState } from "react"
-import { AppContext } from "@/context/AppContext"
 
 import { useSession } from "next-auth/react"
-
 import { toast } from "react-hot-toast"
 
+import { AppContext } from "@/context/AppContext"
 
 const appData = {
   eventsInStorage:{},
   descansosFull:{}
 }
-
-
 
 export const useAgenda = () => {
 

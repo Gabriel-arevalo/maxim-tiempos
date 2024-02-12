@@ -10,7 +10,7 @@ export const googleSheetConnect = async(month) => {
     ],
   });
 
-  const doc = new GoogleSpreadsheet('1agSbaDSBfYOy_aZ64Sj8XTKaFkpYVmwxSrEEJJlLD1A', serviceAccountAuth);
+  const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
 
   await doc.loadInfo();
 
