@@ -11,3 +11,7 @@
   @apply text-sm  text-gray-500
 }
 
+
+.event-agenda-size{
+  font-size: 0.8rem;
+}

@@ -55,7 +55,7 @@ export const useAgenda = () => {
 
         if( !noPozo.includes( cellValue ) ){
           backgroundColor = '#615298'
-        }else if( cellValue === 'DE' ){
+        }else if( cellValue === 'DE' || cellValue ==='VA'){
           backgroundColor = '#96be25'
         }else if( cellValue === 'LI' ){
           backgroundColor = '#c0bad6'
@@ -65,7 +65,7 @@ export const useAgenda = () => {
         const monthFormated = month < 10 ? '0' + month : month
   
         const start = `2024-${ monthFormated }-${ dayFormated }`    //   OJO - CAMBIAR
-        return{ title, start, display: 'auto', backgroundColor }
+        return{ title, start, display: 'auto', backgroundColor, classNames:['event-agenda-size'] }
       })
 
       setIsLoading(false)
