@@ -58,7 +58,7 @@ export const InformationForm = () => {
                 selected={fecha} 
                 onChange={(date) => setFecha(date)} 
                 className='text-sm text-gray-500 p-1'
-                startDate={ new Date('2024-01-01') }
+                maxDate={new Date()}
               />
             </div>
           </div>
