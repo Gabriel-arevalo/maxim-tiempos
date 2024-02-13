@@ -1,6 +1,6 @@
 import { GrWorkshop } from "react-icons/gr";
 import { FaOilWell } from "react-icons/fa6";
-import { FaUmbrellaBeach } from "react-icons/fa";
+import { FaBriefcaseMedical } from "react-icons/fa6";
 import { FaBed } from "react-icons/fa6";
 
 
@@ -11,9 +11,9 @@ export const activities = [
     icon: <GrWorkshop />
   },
   {
-    name: 'Vacaciones',
-    value: 'VA',
-    icon: <FaUmbrellaBeach />
+    name: 'Licencia',
+    value: 'LI',
+    icon: <FaBriefcaseMedical />
   },
   {
     name: 'Descanso',
