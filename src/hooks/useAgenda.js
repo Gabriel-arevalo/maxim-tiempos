@@ -39,21 +39,33 @@ export const useAgenda = () => {
       return
     }
     setIsLoading(true)
-    console.log(month);
+
     try {
       const resp = await fetch(`/api/tiempo/${_id}?month=${ month }`);
       const { cellValues, 
         descansosAcumMesActual, 
         descansosAcumMesAnterior } = await resp.json()
 
+      
+      const noPozo = ['DE', 'LI', 'DE', 'BA']
+
       const apiEvents = cellValues.map( ({ cellValue, day, note }) => {
         const title = cellValue + (note ? `-${ note }`: '')
-  
+        let backgroundColor = '';
+
+        if( !noPozo.includes( cellValue ) ){
+          backgroundColor = '#615298'
+        }else if( cellValue === 'DE' ){
+          backgroundColor = '#96be25'
+        }else if( cellValue === 'LI' ){
+          backgroundColor = '#c0bad6'
+        }
+
         const dayFormated = day < 10 ? '0' + day : day
         const monthFormated = month < 10 ? '0' + month : month
   
         const start = `2024-${ monthFormated }-${ dayFormated }`    //   OJO - CAMBIAR
-        return{ title, start, display: 'auto' }
+        return{ title, start, display: 'auto', backgroundColor }
       })
 
       setIsLoading(false)
