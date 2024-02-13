@@ -8,7 +8,7 @@ import { AppContext } from "@/context/AppContext";
 export const useInformationForm = () => {
 
   const { setIsUpdated } = useContext( AppContext );
-  const { data: session, update: sessionUpdate } = useSession()
+  const { data: session } = useSession()
   const [fecha, setFecha] = useState(new Date());
   const [isLoading, setIsLoading] = useState(false)
   const [employeeInfo, setEmployeeInfo] = useState({

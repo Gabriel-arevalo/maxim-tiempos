@@ -15,7 +15,9 @@ export const Agenda = () => {
       descansosAcumMesActual,
       descansosAcumMesAnterior
     },
-    handleCalChange } = useAgenda()
+    handleCalChange,
+    startDeleteEvent
+   } = useAgenda()
 
   const renderEventContent = (eventInfo) => {
     return <><i>{eventInfo.event.title}</i></>
@@ -39,6 +41,7 @@ export const Agenda = () => {
           }}
           loading={isLoading}
           aspectRatio={1.6}
+          eventClick={ startDeleteEvent  }
         />
 
       </div>

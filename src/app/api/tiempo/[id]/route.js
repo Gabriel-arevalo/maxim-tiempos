@@ -40,3 +40,25 @@ export async function GET(request, { params }){
     descansosAcumMesAnterior
    }, {status:200 })
 }
+
+export async function DELETE(request, { params }){
+  const { id } = params;
+  const { searchParams } = new URL( request.url )
+  const month = Number(searchParams.get('month'))
+  const day = Number(searchParams.get('day'))
+
+  const sheet = await googleSheetConnect(month)
+
+  const { itWasFound, fila } = findEmployeeRowById( id, sheet)
+
+  if(!itWasFound){
+    return NextResponse.json({message: 'Empleado no encontrado en BD'}, { status: 404 })
+  }
+
+  const celda = sheet.getCell(fila, day + 1)
+  celda.value = ''
+  celda.note = ''
+  await sheet.saveUpdatedCells()
+
+  return NextResponse.json({message:'eliminado'})
+}
