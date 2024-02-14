@@ -50,7 +50,7 @@ export const useAgenda = () => {
         descansosAcumMesAnterior } = await resp.json()
 
 
-      const noPozo = ['DE', 'LI', 'DE', 'BA']
+      const noPozo = ['DE', 'LI', 'DE', 'BA', 'FE']
 
       const apiEvents = cellValues.map(({ cellValue, day, note }) => {
         const title = cellValue + (note ? `-${note}` : '')
@@ -58,11 +58,11 @@ export const useAgenda = () => {
 
         if (!noPozo.includes(cellValue)) {
           backgroundColor = '#615298'
-        } else if (cellValue === 'DE' || cellValue === 'VA') {
+        } else if (cellValue === 'DE' || cellValue === 'VA' || cellValue==='FE') {
           backgroundColor = '#96be25'
         } else if (cellValue === 'LI') {
           backgroundColor = '#c0bad6'
-        }
+        } 
 
         const dayFormated = day < 10 ? '0' + day : day
         const monthFormated = month < 10 ? '0' + month : month

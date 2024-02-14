@@ -19,7 +19,6 @@ export async function GET(request, { params }){
   const cellValues = []
 
   for( let i = 2; i <= (30+2); i++ ){
-
     const cellValue = sheet.getCell(fila, i).value
     if(cellValue){
       const cellNote = sheet.getCell(fila, i).note

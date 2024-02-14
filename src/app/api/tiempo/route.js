@@ -8,7 +8,8 @@ export async function POST(request) {
   let sigla;
   const body = await request.json()
 
-  const day = Number(body.fecha.split('T')[0].split('-')[2])
+  const dateSplitted = body.fecha.split('T')[0].split('-')
+  const day = Number(dateSplitted[2])
 
 
   if(body.actividad === 'pozo'){
@@ -26,6 +27,18 @@ export async function POST(request) {
   }
 
   const celda = sheet.getCell(fila, day + 1)
+
+  if(!!celda.value){
+
+    const resta = new Date().getTime() - new Date(body.fecha).getTime()
+    const diasdiFerencia = Math.round(resta/ (1000*60*60*24)) // Obtiene dias de diferencia
+
+    if( diasdiFerencia > 1 ){
+      return NextResponse.json({message: 'Fecha a editar superior a un día'}, {status: 403})
+    }
+    
+  }
+
   celda.value = sigla
   celda.note = body.comentarios
   await sheet.saveUpdatedCells()

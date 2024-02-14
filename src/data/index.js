@@ -2,6 +2,7 @@ import { GrWorkshop } from "react-icons/gr";
 import { FaOilWell } from "react-icons/fa6";
 import { FaBriefcaseMedical } from "react-icons/fa6";
 import { FaBed } from "react-icons/fa6";
+import { GiSoccerBall } from "react-icons/gi";
 
 
 export const activities = [
@@ -24,6 +25,11 @@ export const activities = [
     name: 'Pozo',
     value: 'pozo',
     icon: <FaOilWell />
+  },
+  {
+    name: 'Festivo',
+    value:'FE',
+    icon: <GiSoccerBall />
   }
 ]
 
