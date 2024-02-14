@@ -7,7 +7,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 import { AppContext } from "@/context/AppContext"
 import { Button } from "@/components/Button"
-import { Loading } from "@/components/Loading";
+
 
 const appData = {
   eventsInStorage: {},

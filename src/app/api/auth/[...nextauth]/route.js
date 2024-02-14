@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs'
 import { connectMongoDB } from '@/lib/mongodb'
 import User from '@/models/user'
 
-const authOptions ={
+export const authOptions ={
   providers:[
     CredentialsProvider({
       name:'credentials',
