@@ -108,7 +108,18 @@ export const useAgenda = () => {
   }
 
   const startDeleteEvent = ({ event: { _instance } }) => {
-    const day = Number(_instance.range.end.toString().split(' ')[2]);
+    toast.dismiss()
+    const end = _instance.range.end
+    const endDate = new Date(end).getTime()
+
+    const resta = new Date().getTime() - endDate
+    const diasdiFerencia = Math.round(resta/ (1000*60*60*24)) // Obtiene dias de diferencia
+
+    if( diasdiFerencia > 1 ){
+      return toast.error('Fecha superior a dos dias. No puede editar!')
+    }
+
+    const day = Number(end.toString().split(' ')[2]);
 
     toast(
       (t) => (
