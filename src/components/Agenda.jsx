@@ -5,12 +5,14 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import esLocale from '@fullcalendar/core/locales/es';
 import { useAgenda } from '@/hooks/useAgenda';
 import { Loading } from './Loading';
+import { useRef } from 'react';
 
 export const Agenda = () => {
 
   const {
     events,
     isLoading,
+    titleAgendaObj,
     descansos: {
       descansosAcumMesActual,
       descansosAcumMesAnterior
@@ -18,6 +20,8 @@ export const Agenda = () => {
     handleCalChange,
     startDeleteEvent
    } = useAgenda()
+
+
 
   const renderEventContent = (eventInfo) => {
     return <><i>{eventInfo.event.title}</i></>
@@ -42,6 +46,7 @@ export const Agenda = () => {
           loading={isLoading}
           aspectRatio={1.7}
           eventClick={ startDeleteEvent  }
+          titleFormat={titleAgendaObj}
         />
 
       </div>

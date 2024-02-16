@@ -21,12 +21,16 @@ export const useAgenda = () => {
   const [events, setEvents] = useState([])
   const [descansos, setDescansos] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+  const [titleAgendaObj, setTitleAgendaObj] = useState({
+    year: 'numeric', 
+    month:'long'
+  })
+
 
 
   const monthBeforeRender = useRef(new Date().getMonth() + 1)
-  const isRendered = useRef(false)
-  const currentMonth = useRef(new Date().getMonth() + 1);
-
+  const isRendered =     useRef(false)
+  const currentMonth =   useRef(new Date().getMonth() + 1);
 
   const getEvents = async (month) => {
     if (!session) return
@@ -192,11 +196,18 @@ export const useAgenda = () => {
     isRendered.current = true
   }, [])
 
-
+  useEffect(() => {
+    const { innerWidth: width, innerHeight: height } = window;
+    if(width < 600){
+      setTitleAgendaObj({year:'numeric', month:'short'})
+    }
+  }, [])
+  
   return {
     events,
     descansos,
     isLoading,
+    titleAgendaObj,
 
     startDeleteEvent,
     handleCalChange
