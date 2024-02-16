@@ -15,3 +15,7 @@
 .event-agenda-size{
   font-size: 0.8rem;
 }
+
+.event-agenda-size div{
+  text-wrap: wrap
+}

@@ -33,12 +33,14 @@ export const LoginForm = () => {
     e.preventDefault()
 
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
+    const trimmedEmail = email.trim()
+    const trimmedPass  = password.trim()
 
-    if(!validEmail.test(email)){
+    if(!validEmail.test(trimmedEmail)){
       return toast.error('Ingresa un e-mail válido')
     }
 
-    if(password.trim() === ''){
+    if(trimmedPass === ''){
       return toast.error('Ingresa una contraseña')
     }
 
@@ -46,8 +48,8 @@ export const LoginForm = () => {
 
     try {
       const res = await signIn('credentials',{
-        email, 
-        password,
+        email: trimmedEmail, 
+        password: trimmedPass,
         redirect:false
       })
 

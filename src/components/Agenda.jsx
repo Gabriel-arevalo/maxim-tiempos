@@ -44,7 +44,7 @@ export const Agenda = () => {
             end: '2025-01-01'
           }}
           loading={isLoading}
-          aspectRatio={1.7}
+          aspectRatio={1.6}
           eventClick={ startDeleteEvent  }
           titleFormat={titleAgendaObj}
         />
