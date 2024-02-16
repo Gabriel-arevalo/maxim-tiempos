@@ -36,7 +36,6 @@ export const Agenda = () => {
           weekends={true}
           events={events}
           eventContent={renderEventContent}
-          // height={"auto"}
           locale={esLocale}
           datesSet={handleCalChange}
           validRange={{
@@ -44,9 +43,11 @@ export const Agenda = () => {
             end: '2025-01-01'
           }}
           loading={isLoading}
-          aspectRatio={1.6}
+          aspectRatio={1.7}
           eventClick={ startDeleteEvent  }
           titleFormat={titleAgendaObj}
+          showNonCurrentDates={ false }
+          fixedWeekCount={ false }
         />
 
       </div>
