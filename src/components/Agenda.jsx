@@ -40,7 +40,7 @@ export const Agenda = () => {
             end: '2025-01-01'
           }}
           loading={isLoading}
-          aspectRatio={1.6}
+          aspectRatio={1.7}
           eventClick={ startDeleteEvent  }
         />
 
@@ -57,24 +57,23 @@ export const Agenda = () => {
               <div className='flex items-center gap-4'>
 
                 <div className='flex flex-col items-center'>
-                  <p className='text-lg'>Descansos acumulados</p>
+                  <p className='text-sm sm:text-xl md:text-2xl'>Descansos acumulados</p>
                   <span className='text-sm'>mes anterior</span>
                 </div>
 
-                <span className={`text-2xl ${descansosAcumMesAnterior < 0 ? 'text-red-500' : 'text-green-500'}`}>
+                <span className={`text-lg sm:text-xl md:text-2xl ${descansosAcumMesAnterior < 0 ? 'text-red-500' : 'text-green-500'}`}>
                   {descansosAcumMesAnterior}
                 </span>
               </div>
 
-
               <div className='flex items-center gap-4'>
 
                 <div className='flex flex-col items-center'>
-                  <p className='text-lg'>Descansos acumulados</p>
-                  <span className='text-sm'>mes actual</span>
+                  <p className='text-sm sm:text-xl md:text-2xl'>Descansos</p>
+                  <span className='text-sm'>disponibles</span>
                 </div>
 
-                <span className={`text-2xl ${descansosAcumMesActual < 0 ? 'text-red-500' : 'text-green-500'}`}>
+                <span className={`text-lg sm:text-xl md:text-2xl ${descansosAcumMesActual < 0 ? 'text-red-500' : 'text-green-500'}`}>
                   {descansosAcumMesActual}
                 </span>
               </div>
@@ -82,8 +81,6 @@ export const Agenda = () => {
             </div>
           )
       }
-
-
 
     </div>
 
