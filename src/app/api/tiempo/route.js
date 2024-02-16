@@ -3,20 +3,29 @@ import { NextResponse } from "next/server";
 import { googleSheetConnect } from "@/helpers/googleSheetsConnect";
 import { findEmployeeRowById } from "@/helpers/findEmployeeRow";
 
+
 export async function POST(request) {
 
   let sigla;
   const body = await request.json()
+  const intlDateObj = new Intl.DateTimeFormat('en-US', {
+    timeZone: "America/New_York"
+  });
+
+  body.fecha = JSON.stringify(new Date(intlDateObj.format(new Date(body.fecha))))
 
   const dateSplitted = body.fecha.split('T')[0].split('-')
   const day = Number(dateSplitted[2])
-
 
   if(body.actividad === 'pozo'){
     sigla = body.operadora[0] + body.turno[0].toUpperCase()
   }else{
     sigla = body.actividad
   }
+
+
+
+  // console.log(new Date(intlDateObj.format(new Date(body.fecha))));
 
   const sheet = await googleSheetConnect(body.currentMonth);
 
