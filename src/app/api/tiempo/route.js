@@ -24,9 +24,6 @@ export async function POST(request) {
   }
 
 
-
-  // console.log(new Date(intlDateObj.format(new Date(body.fecha))));
-
   const sheet = await googleSheetConnect(body.currentMonth);
 
   const { itWasFound, fila } = findEmployeeRowById( body.id, sheet)

@@ -28,7 +28,7 @@ export const Agenda = () => {
   }
 
   return (
-    <div className='flex flex-col flex-1 gap-2'>
+    <div className='mt-3 sm:mt-0 flex flex-col flex-1 gap-2'>
       <div className='basis-10/12 overflow-y-scroll'>
         <FullCalendar
           plugins={[dayGridPlugin]}

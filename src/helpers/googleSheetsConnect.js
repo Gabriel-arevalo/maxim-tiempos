@@ -14,7 +14,12 @@ export const googleSheetConnect = async(month) => {
 
   await doc.loadInfo();
 
-  const sheet = doc.sheetsByIndex[month-1];
+  const monthsName = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 
+    'MAYO', 'JUNIO','JULIO', 'AGOSTO','SEPTIEMBRE','OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE']
+
+  const sheet = doc.sheetsByTitle[monthsName[ month-1 ]]
+
+  // const sheet = doc.sheetsByIndex[month-1];
   await sheet.loadCells('A1:AT201')
   return sheet
 }
