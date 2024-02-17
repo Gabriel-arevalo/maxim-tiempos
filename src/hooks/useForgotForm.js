@@ -34,11 +34,12 @@ export const useForgotForm = () => {
 
       setEmail('')
       toast.success('Email de recuperación enviado.')
+      setIsLoading(false)
 
     } catch (error) {
       toast.error(error)
     }
-    setIsLoading(false)
+    
   }
 
   return{

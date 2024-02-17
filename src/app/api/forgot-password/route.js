@@ -74,16 +74,21 @@ export async function POST(request){
       `
     };
 
-    transporter.sendMail(message, (error, info) => {
-      console.log('ejecutado');
-      if (error) {
-          console.log("Error enviando email")
-          console.log(error.message)
-      } else {
-          console.log("Email enviado")
-      }
-  })
 
+    const emailAttemp = await new Promise((resolve, reject) => {
+      transporter.sendMail(message, (error, info) => {
+        console.log('ejecutado');
+        if (error) {
+            console.log("Error enviando email")
+            console.log(error.message)
+            return reject(error)
+        } else {
+            console.log("Email enviado")
+            return resolve(info)
+        }
+      })
+    })
+    console.log('fuera');
     return NextResponse.json({message: 'Email sent'})
 
   } catch (error) {
