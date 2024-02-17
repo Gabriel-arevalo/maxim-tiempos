@@ -1,3 +1,4 @@
+import { isValidEmail } from "@/helpers/isValidEmail";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -26,11 +27,9 @@ export const useLogingForm = () => {
   const onSubmit = async(e) => {
     e.preventDefault()
 
-    const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
-    const trimmedEmail = email.trim()
     const trimmedPass  = password.trim()
 
-    if(!validEmail.test(trimmedEmail)){
+    if(!isValidEmail(email)){
       return toast.error('Ingresa un e-mail válido')
     }
 
@@ -42,7 +41,7 @@ export const useLogingForm = () => {
 
     try {
       const res = await signIn('credentials',{
-        email: trimmedEmail, 
+        email: email.trim(), 
         password: trimmedPass,
         redirect:false
       })

@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import { Notification } from "./Notification"
 
-export const Form = ({ children, onSubmit }) => {
+export const Form = ({ children, onSubmit, title }) => {
   return (
     <div className="font-sans">
       <Notification />
@@ -18,8 +18,8 @@ export const Form = ({ children, onSubmit }) => {
               alt="maxim-logo"
               className="absolute"
             />
-            <label className="block mt-3 text-2xl text-gray-700 text-center font-semibold">
-              Inicia Sesión
+            <label className="block mt-3 text-2xl text-gray-700 text-center font-semibold text-right">
+              { title }
             </label>
             <form onSubmit={ onSubmit } className="mt-10">
               { children }
