@@ -42,7 +42,7 @@ export async function POST(request){
 
     const resetTokenExpires = Date.now() + 3600000 // 1 hora
 
-    const resetUrl     = `${process.env.VERCEL_URL}/reset-password/${ resetURLToken }`
+    const resetUrl     = `${process.env.BASE_URL}/reset-password/${ resetURLToken }`
     const recoveryResp = await Recovery.findOne({ email }).select("email");
 
     if(!recoveryResp){
@@ -88,7 +88,7 @@ export async function POST(request){
         }
       })
     })
-    console.log('fuera');
+
     return NextResponse.json({message: 'Email sent'})
 
   } catch (error) {
