@@ -11,7 +11,7 @@ export async function POST(request) {
   const intlDateObj = new Intl.DateTimeFormat('en-US', {
     timeZone: "America/New_York"
   });
-
+  const fecha = body.fecha
   body.fecha = JSON.stringify(new Date(intlDateObj.format(new Date(body.fecha))))
 
   const dateSplitted = body.fecha.split('T')[0].split('-')
@@ -35,8 +35,7 @@ export async function POST(request) {
   const celda = sheet.getCell(fila, day + 1)
 
   if(!!celda.value){
-
-    const resta = new Date().getTime() - new Date(body.fecha).getTime()
+    const resta = new Date().getTime() - new Date(fecha).getTime()
     const diasdiFerencia = Math.round(resta/ (1000*60*60*24)) // Obtiene dias de diferencia
 
     if( diasdiFerencia > 1 ){
