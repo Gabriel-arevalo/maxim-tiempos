@@ -36,7 +36,7 @@ export const useInformationForm = () => {
       return toast.error('Fecha fuera de rango')
     }
 
-    if( employeeInfo.actividad ==='' || employeeInfo.operadora ==='' || employeeInfo.comentarios==='' ){
+    if( employeeInfo.actividad ==='' || employeeInfo.operadora ==='' || employeeInfo.comentarios.trim()==='' ){
       return toast.error('Ingresa todos los campos animal!!')
     }
 

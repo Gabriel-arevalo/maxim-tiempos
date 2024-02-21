@@ -41,6 +41,10 @@ export async function POST(request) {
     if( diasdiFerencia > 1 ){
       return NextResponse.json({message: 'Fecha a editar superior a un día'}, {status: 403})
     }
+
+    if( diasdiFerencia < 0 ){
+      return NextResponse.json({message: 'No puede crear eventos en fechas futuras'}, {status: 403})
+    }
     
   }
 
