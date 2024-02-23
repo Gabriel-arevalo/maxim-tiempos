@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { toast } from 'react-hot-toast';
 
 import { AppContext } from "@/context/AppContext";
-import { useEffect } from "react";
 
 export const useInformationForm = () => {
 
@@ -77,18 +76,7 @@ export const useInformationForm = () => {
     }
 
   }
-
-  const getServerDate = async() => {
-    const resp = await fetch('/api/server-date')
-    const { date } = await resp.json()
-    return date
-  }
-
-  useEffect(() => {
-    getServerDate().then( setFecha )
-  }, [])
   
-
   return{
     isLoading,
     employeeInfo,
@@ -98,6 +86,5 @@ export const useInformationForm = () => {
     setFecha,
     onChange,
     onSubmit,
-    getServerDate
   }
 }
