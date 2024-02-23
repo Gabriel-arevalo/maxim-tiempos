@@ -25,7 +25,6 @@ export const InformationForm = () => {
     isLoading,
     employeeInfo,
     session,
-    fecha,
     setFecha,
     onChange,
     onSubmit,
@@ -55,7 +54,7 @@ export const InformationForm = () => {
             <div>
               <p className="subtitle mt-5 sm:mt-0 mb-4">Fecha:<span className='text-maxim-color'>*</span></p>
               <DatePicker 
-                selected={fecha} 
+                selected={new Date()} 
                 onChange={(date) => setFecha(date)} 
                 className='text-sm text-gray-500 p-1'
                 maxDate={ new Date() }
