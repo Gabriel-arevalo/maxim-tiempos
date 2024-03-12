@@ -36,7 +36,7 @@ export const useInformationForm = () => {
     }
 
     if( employeeInfo.actividad ==='' || employeeInfo.operadora ==='' || employeeInfo.comentarios.trim()==='' ){
-      return toast.error('Ingresa todos los campos animal!!')
+      return toast.error('Por favor ingresa todos los campos.')
     }
 
     const currentMonth = new Date(fecha).getMonth() + 1
